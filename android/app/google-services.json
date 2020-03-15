@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1005508703259",
+    "firebase_url": "https://mikes-fryser-app.firebaseio.com",
+    "project_id": "mikes-fryser-app",
+    "storage_bucket": "mikes-fryser-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1005508703259:android:51c9a0180f08af6f8974be",
+        "android_client_info": {
+          "package_name": "com.frederik.fryser"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1005508703259-nce4rjj4jq77abe62dk7coe5k8e5d5hk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA206_QiXCAASzwu3suPacQEH5fsGyA7qc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1005508703259-nce4rjj4jq77abe62dk7coe5k8e5d5hk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
