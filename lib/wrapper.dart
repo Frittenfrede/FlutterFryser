@@ -3,7 +3,7 @@ import 'package:fryser/screens/authenticate/authenticate.dart';
 import 'package:provider/provider.dart';
 import 'router.dart' as router;
 
-import 'screens/home/home.dart';
+
 import 'models/user.dart';
 
 class Wrapper extends StatelessWidget {

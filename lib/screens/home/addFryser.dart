@@ -53,7 +53,7 @@ class _addFryserState extends State<addFryser> {
                     width: 300,
                     child: DropdownButtonFormField(
                       decoration: textInputDecoration,
-                      value: _temperatur ?? -18,
+                      value: _temperatur != null ? _temperatur : -18,
                       items: temperature.map((f) {
                         return DropdownMenuItem(
                           value: f,
@@ -74,10 +74,10 @@ class _addFryserState extends State<addFryser> {
                         Freezer newFreezer = new Freezer(
                             navn: _navn,
                             foods: new List<Food>(),
-                            temperatur: _temperatur);
+                            temperatur: _temperatur != null ? _temperatur : -18);
                         await DatabaseService(uid: user.uid)
                             .updateuserData(newFreezer);
-                        Navigator.pop(context);
+                        Navigator.pushNamed(context, "/");
                       }
                     },
                   ),

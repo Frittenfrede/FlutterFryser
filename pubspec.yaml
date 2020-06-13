@@ -23,10 +23,10 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
-  firebase_auth: ^0.15.4
-  cloud_firestore: ^0.13.2+1
-  provider: ^4.0.4
-  flutter_spinkit: "^4.1.1"
+  firebase_auth: ^0.15.4 # Skal implementeres for at bruge firebase auth
+  cloud_firestore: ^0.13.2+1 # Skal implementeres for at bruge cloud firestore
+  provider: ^4.0.4 # giver mulighed for at benytte sig af provider
+  flutter_spinkit: "^4.1.1" # Giver et udvalg af "vente-widgets"
   
 
 dev_dependencies:

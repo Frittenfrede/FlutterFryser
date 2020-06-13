@@ -4,7 +4,8 @@ class Freezer {
   String navn;
   List<Food> foods;
   double temperatur;
-  Freezer({this.navn, this.foods, this.temperatur});
+  String id;
+  Freezer({this.navn, this.foods, this.temperatur, this.id});
 
   Map<String, dynamic> toJson() {
     // print("Ja");
@@ -14,7 +15,7 @@ class Freezer {
     return {
       "navn": navn,
       "foods": foods.map((food) => food.toJson()).toList(),
-      "temperatur": temperatur
+      "temperatur": temperatur,
     };
   }
 

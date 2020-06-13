@@ -21,14 +21,6 @@ class _FreezerListState extends State<FreezerList> {
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<User>(context);
-    // final freezerStream =
-    //     DatabaseService(uid: user.uid).freezers.then((value) => value);
-    //final freezers = Provider.of<List<Freezer>>(context) ?? [];
-    //print(freezers.documents);
-    // freezers.forEach((f) {
-    //   print(f.navn);
-    //   print(f.temperatur);
-    // });
 
     return FutureBuilder<Stream<List<Freezer>>>(
         future: DatabaseService(uid: user.uid).freezers,
@@ -64,7 +56,7 @@ class _FreezerListState extends State<FreezerList> {
                                               builder: (BuildContext context) {
                                                 return AlertDialog(
                                                   title: Text(
-                                                      'Rewind and remember'),
+                                                      'Vil du slette ' + snapshot.data[index].navn+ "?"),
                                                   content:
                                                       SingleChildScrollView(
                                                     child: ListBody(
@@ -75,21 +67,22 @@ class _FreezerListState extends State<FreezerList> {
                                                   ),
                                                   actions: <Widget>[
                                                     FlatButton(
-                                                      child: Text('Accepter'),
+                                                      child: Text('Accepter ikke'),
                                                       onPressed: () {
-                                                        //sletFryser(frysere[index]);
-                                                        Navigator
-                                                            .pushReplacementNamed(
-                                                                context,
-                                                                "FryserIndholdView");
+                                                      Navigator.of(context)
+                                                            .pop();
                                                       },
                                                     ),
                                                     FlatButton(
                                                       child:
-                                                          Text('Accepter ikke'),
+                                                          Text('Accepter'),
                                                       onPressed: () {
-                                                        Navigator.of(context)
-                                                            .pop();
+                                                        
+                                                             DatabaseService(uid: user.uid).deleteFreezer(snapshot.data[index]);
+                                                        Navigator
+                                                            .pushReplacementNamed(
+                                                                context,
+                                                                "/");
                                                       },
                                                     ),
                                                   ],
@@ -107,15 +100,7 @@ class _FreezerListState extends State<FreezerList> {
                                 );
                               }),
                         ),
-                        floatingActionButton: FloatingActionButton(
-                          onPressed: () => {
-                            // Navigator.pushNamed(context, "AddFryser",
-                            //     arguments: freezers)
-                          },
-                          tooltip: 'Tilføj fryser',
-                          backgroundColor: Colors.blue,
-                          child: const Icon(Icons.add),
-                        ));
+                      );
                   } else {
                     print("IF SNAPSHOT HAS THE DATA FREEZ LISTT");
                     return Loading();

@@ -11,9 +11,15 @@ import 'freezer_list.dart';
 import 'models/freezer.dart';
 import 'router.dart' as router;
 
-class FryserView extends StatelessWidget {
+class FryserView extends StatefulWidget {
   //const FryserView({Key key}) : super(key: key);
+  @override
+  _FryserViewState createState() => _FryserViewState();
+}
+
+class _FryserViewState extends State<FryserView> {
   final AuthService _auth = AuthService();
+
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<User>(context);
@@ -36,6 +42,7 @@ class FryserView extends StatelessWidget {
 
                 return Scaffold(
                   appBar: AppBar(
+                    automaticallyImplyLeading: false,
                     title: Text("Dine frysere"),
                     actions: <Widget>[
                       FlatButton.icon(
@@ -50,98 +57,23 @@ class FryserView extends StatelessWidget {
                         label: Text("Tilføj fryser"),
                         onPressed: () async {
                           _showAddFryserView();
+                           setState(() {
+                            
+                           });
                         },
                       )
                     ],
                   ),
 
                   body: FreezerList(),
-                  // body: new Container(
-                  //     child: ListView.builder(
-                  //         itemCount: frysere.length,
-                  //         itemBuilder: (context, index) {
-                  //           return ListTile(
-                  //             title: Text(frysere[index].navn),
-                  //             trailing: Row(
-                  //               mainAxisSize: MainAxisSize.min,
-                  //               children: <Widget>[
-                  //                 IconButton(
-                  //                     icon: Icon(Icons.build),
-                  //                     tooltip: 'Redigere denne fryser',
-                  //                     onPressed: () {}),
-                  //                 IconButton(
-                  //                     icon: Icon(Icons.delete),
-                  //                     tooltip: 'Slette denne fryser',
-                  //                     onPressed: () {
-                  //                       showDialog<void>(
-                  //                         context: context,
-                  //                         barrierDismissible:
-                  //                             false, // user must tap button!
-                  //                         //SlidableDrawerActionPane
-                  //                         builder: (BuildContext context) {
-                  //                           return AlertDialog(
-                  //                             title: Text('Rewind and remember'),
-                  //                             content: SingleChildScrollView(
-                  //                               child: ListBody(
-                  //                                 children: <Widget>[
-                  //                                   Text(
-                  //                                       'Er du sikker på at du vil slette vil slette ${frysere[index].navn}'),
-                  //                                 ],
-                  //                               ),
-                  //                             ),
-                  //                             actions: <Widget>[
-                  //                               FlatButton(
-                  //                                 child: Text('Accepter'),
-                  //                                 onPressed: () {
-                  //                                   sletFryser(frysere[index]);
-                  //                                   Navigator.pushReplacementNamed(
-                  //                                       context, "FryserIndholdView");
-                  //                                 },
-                  //                               ),
-                  //                               FlatButton(
-                  //                                 child: Text('Accepter ikke'),
-                  //                                 onPressed: () {
-                  //                                   Navigator.of(context).pop();
-                  //                                 },
-                  //                               ),
-                  //                             ],
-                  //                           );
-                  //                         },
-                  //                       );
-                  //                     })
-                  //               ],
-                  //             ),
-                  //             onTap: () {
-                  //               Navigator.pushNamed(context, "FryserIndhold",
-                  //                   arguments: frysere[index]);
-                  //             },
-                  //           );
-                  //         })),
-                  // floatingActionButton: FloatingActionButton(
-                  //   onPressed: () => {Navigator.pushNamed(context, "AddFryser")},
-                  //   tooltip: 'Tilføj fryser',
-                  //   backgroundColor: Colors.blue,
-                  //   child: const Icon(Icons.add),
-                  // ),
                 );
               });
         } else {
-          print("FryserVied loading");
+          print("FryserView loading");
           return Loading();
         }
       },
     );
   }
 }
-// )
 
-// class BodyLayout extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return _myListView(context);
-//   }
-// }
-
-// Widget _myListView(BuildContext context) {
-
-// }
